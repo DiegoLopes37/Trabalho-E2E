@@ -1,9 +1,10 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class LoginPagina:
-
-    URL = "https://opensource-demo.orangehrmlive.com"
+    URL = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
 
     CAMPO_USUARIO = (By.NAME, "username")
     CAMPO_SENHA = (By.NAME, "password")
@@ -14,8 +15,19 @@ class LoginPagina:
 
     def abrir(self):
         self.driver.get(self.URL)
+        WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located(self.CAMPO_USUARIO)
+        )
 
     def realizar_login(self, usuario, senha):
-        self.driver.find_element(*self.CAMPO_USUARIO).send_keys(usuario)
-        self.driver.find_element(*self.CAMPO_SENHA).send_keys(senha)
-        self.driver.find_element(*self.BOTAO_LOGIN).click()
+        WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located(self.CAMPO_USUARIO)
+        ).send_keys(usuario)
+
+        WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located(self.CAMPO_SENHA)
+        ).send_keys(senha)
+
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.BOTAO_LOGIN)
+        ).click()
