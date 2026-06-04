@@ -63,7 +63,7 @@ Para rodar apenas um grupo de testes (exemplo: login):
 bash
 pytest -m login
 Estrutura do projeto
-Código
+text
 orange_testes_e2e/
 │
 ├── paginas/                # Page Objects

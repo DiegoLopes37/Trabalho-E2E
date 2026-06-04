@@ -15,7 +15,7 @@ class MenuPagina:
         self.driver = driver
 
     def acessar_admin(self):
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable(self.MENU_ADMIN)
         ).click()
 

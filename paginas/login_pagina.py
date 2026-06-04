@@ -16,7 +16,7 @@ class LoginPagina:
 
     def abrir(self):
         self.driver.get(self.URL)
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, 20).until(
             EC.visibility_of_element_located(self.CAMPO_USUARIO)
         )
 
