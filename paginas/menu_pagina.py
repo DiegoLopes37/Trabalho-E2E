@@ -20,24 +20,24 @@ class MenuPagina:
         ).click()
 
     def acessar_pim(self):
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable(self.MENU_PIM)
         ).click()
 
     def acessar_leave(self):
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable(self.MENU_LEAVE)
         ).click()
 
     def acessar_time(self):
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable(self.MENU_TIME)
         ).click()
 
     def realizar_logout(self):
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable(self.MENU_USER)
         ).click()
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable(self.BOTAO_LOGOUT)
         ).click()

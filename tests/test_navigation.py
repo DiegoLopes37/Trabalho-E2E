@@ -1,3 +1,4 @@
+import time
 import pytest
 from paginas.login_pagina import LoginPagina
 from paginas.menu_pagina import MenuPagina
@@ -16,5 +17,10 @@ def test_navegacao(driver, menu_func, expected_url):
     login.abrir()
     login.realizar_login("Admin", "admin123")
 
-    getattr(menu, menu_func)()  # chama dinamicamente o método
+    time.sleep(2)  # pausa para ver o login
+
+    getattr(menu, menu_func)() 
+
+    time.sleep(2)  # pausa para ver a navegação
+
     assert expected_url in driver.current_url.lower()

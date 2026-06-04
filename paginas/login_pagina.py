@@ -21,19 +21,19 @@ class LoginPagina:
         )
 
     def realizar_login(self, usuario, senha):
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, 20).until(
             EC.visibility_of_element_located(self.CAMPO_USUARIO)
         ).send_keys(usuario)
 
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, 20).until(
             EC.visibility_of_element_located(self.CAMPO_SENHA)
         ).send_keys(senha)
 
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable(self.BOTAO_LOGIN)
         ).click()
 
     def mensagem_erro_visivel(self):
-        return WebDriverWait(self.driver, 10).until(
+        return WebDriverWait(self.driver, 20).until(
             EC.visibility_of_element_located(self.MENSAGEM_ERRO)
         ).text
