@@ -9,6 +9,7 @@ class LoginPagina:
     CAMPO_USUARIO = (By.NAME, "username")
     CAMPO_SENHA = (By.NAME, "password")
     BOTAO_LOGIN = (By.CSS_SELECTOR, "button[type='submit']")
+    MENSAGEM_ERRO = (By.CSS_SELECTOR, "p.oxd-alert-content-text")
 
     def __init__(self, driver):
         self.driver = driver
@@ -31,3 +32,8 @@ class LoginPagina:
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable(self.BOTAO_LOGIN)
         ).click()
+
+    def mensagem_erro_visivel(self):
+        return WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located(self.MENSAGEM_ERRO)
+        ).text

@@ -9,10 +9,7 @@ def test_logout(driver):
 
     login.abrir()
 
-    login.realizar_login(
-        "Admin",
-        "admin123"
-    )
+    login.realizar_login("Admin","admin123")
 
     menu.realizar_logout()
 
